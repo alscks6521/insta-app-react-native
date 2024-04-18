@@ -15,6 +15,8 @@ import styled from "styled-components";
 import { auth } from "../firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { FirebaseError } from "firebase/app";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { AuthStackScreenList } from "../stacks/AuthStack";
 
 // `` 백틱, image
 const Container = styled(ImageBackground)`
@@ -93,7 +95,7 @@ const UserName = styled(UserId)``;
 // Error Message
 const ErrorMessage = styled(Text)`
   color: #f02d2d;
-  font-size: 15;
+  font-size: 15px;
 `;
 // loading state
 
@@ -112,11 +114,15 @@ export default () => {
   const [loading, setLoading] = useState(false);
 
   // use navigation Hook
-  const navigation = useNavigation();
+  // NativeStackNavigationProp은 React Navigation의 useNavigation 훅이나 withNavigation 고차 컴포넌트와 함께 사용된다.
+  // 이를 통해 컴포넌트에서 네비게이션 관련 메서드를 호출
+  const navigation =
+    useNavigation<NativeStackNavigationProp<AuthStackScreenList>>();
 
   // moving screen to signin page.
   const goToSignIn = () => {
     navigation.navigate("SignIn");
+    // navigation.goBack();
   };
 
   // onChange  Text ( 사용자 입력에 따라 변경된 Input Text )

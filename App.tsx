@@ -1,11 +1,9 @@
-import home from "./screens/home";
-import detail from "./screens/detail";
-import signin from "./screens/signin-screen";
-import signup from "./screens/signup-screen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { auth } from "./firebaseConfig";
 import { useEffect, useState } from "react";
+import AuthStack from "./stacks/AuthStack";
+import MainStack from "./stacks/MainStack";
 
 const Stack = createStackNavigator();
 
@@ -29,18 +27,16 @@ export default function App() {
     });
   }, []);
 
+  useEffect(() => {}, []);
+
   return (
     <NavigationContainer>
       {auth.currentUser ? (
-        <Stack.Navigator>
-          <Stack.Screen name="Home" component={home} />
-          <Stack.Screen name="Detail" component={detail} />
-        </Stack.Navigator>
+        // MainStack: 로그인 YES > 로그인 인증 화면 그룹
+        <MainStack />
       ) : (
-        <Stack.Navigator>
-          <Stack.Screen name="SignIn" component={signin} />
-          <Stack.Screen name="SignUp" component={signup} />
-        </Stack.Navigator>
+        // AuthStack: 로그인 NO > 로그인 인증 안된 그룹
+        <AuthStack />
       )}
     </NavigationContainer>
   );

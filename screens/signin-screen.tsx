@@ -16,6 +16,9 @@ import styled from "styled-components";
 import { auth } from "../firebaseConfig";
 import { FirebaseError } from "firebase/app";
 
+import { AuthStackScreenList } from "../stacks/AuthStack";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
 // `` 백틱, image
 const Container = styled(ImageBackground)`
   justify-content: center;
@@ -91,7 +94,7 @@ const CreateAccount = styled(Text)`
 
 const ErrorMessage = styled(Text)`
   color: #f02d2d;
-  font-size: 15;
+  font-size: 15px;
 `;
 
 export default () => {
@@ -99,13 +102,22 @@ export default () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const navigation = useNavigation();
-
   // Error Message
   const [error, setError] = useState("");
 
   // Loaing State...
   const [loading, setLoading] = useState(false);
+
+  // Navigation Hook
+  // NativeStackNavigationProp은 React Navigation의 useNavigation 훅이나 withNavigation 고차 컴포넌트와 함께 사용된다.
+  // 이를 통해 컴포넌트에서 네비게이션 관련 메서드를 호출
+  const navigation =
+    useNavigation<NativeStackNavigationProp<AuthStackScreenList>>();
+
+  const goToSignUp = () => {
+    navigation.navigate("SignUp");
+    // navigation.goBack(); // 뒤로가기
+  };
 
   // onChange  Text ( 사용자 입력에 따라 변경된 Input Text )
   const onChangeText = (
@@ -140,11 +152,7 @@ export default () => {
       setError("");
 
       await signInWithEmailAndPassword(auth, email, password);
-      Alert.alert("Success Login", "", [
-        {
-          onPress: () => navigation.navigate("Home"),
-        },
-      ]);
+      Alert.alert("Success Login");
     } catch (error) {
       if (error instanceof FirebaseError) setError(error.message);
     } finally {
@@ -152,8 +160,6 @@ export default () => {
       return;
     }
   };
-
-  const goToSignUp = () => navigation.navigate("SignUp");
 
   // Screen Design
   return (
