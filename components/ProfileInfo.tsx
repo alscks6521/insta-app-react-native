@@ -1,4 +1,4 @@
-import { Image, Text, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import styled from "styled-components";
 
 const Container = styled(View)``;
@@ -10,8 +10,6 @@ const Info = styled(View)`
 const Data = styled(View)`
   flex-direction: column;
   justify-content: center;
-  border-radius: 5px;
-  background-color: white;
 `;
 
 const Name = styled(Text)`
@@ -33,11 +31,15 @@ const ProfileImg = styled(Image)`
   border-radius: 5px;
 `;
 
+const CustomButton = styled(TouchableOpacity)``;
+
 export default () => {
   return (
     <Container>
       <Info>
-        <ProfileImg source={require("../assets/instaDaelim_profile.png")} />
+        <CustomButton>
+          <ProfileImg source={require("../assets/splash.png")} />
+        </CustomButton>
         <Data>
           <Name>MinSung</Name>
           <JoinDate>2024.05.02</JoinDate>
