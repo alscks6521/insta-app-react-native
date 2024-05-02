@@ -13,6 +13,7 @@ import signup from "./screens/signup-screen";
 
 const Stack = createStackNavigator();
 
+// 8week Firebase에 저장된 데이터를 실제로 가져와 사용하기
 export default function App() {
   // User 정보
   // userState 타입 설정.
