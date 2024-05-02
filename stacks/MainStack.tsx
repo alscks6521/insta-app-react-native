@@ -1,11 +1,9 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import home from "../screens/home";
-import detail from "../screens/detail";
+import tabs from "../stacks/Tabs";
 
 // 이동할 스크린 StackNavigator : type 지정
 export type MainStackScreenList = {
-  Home: undefined;
-  Detail: undefined;
+  Tabs: undefined;
 };
 
 // StackNavigator 생성
@@ -15,8 +13,11 @@ export default () => {
   // Stack안에 이동할 페이지 만들어 그룹화
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={home} />
-      <Stack.Screen name="Detail" component={detail} />
+      <Stack.Screen
+        name="Tabs"
+        component={tabs}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 };

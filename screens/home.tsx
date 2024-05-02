@@ -23,7 +23,7 @@ export default () => {
   // design screen
   return (
     <View style={styles.container}>
-      <Text>Home Screen.</Text>
+      <Text>Home Screen</Text>
       <Button title="SignOut" onPress={signOut} />
     </View>
   );
@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     // 크기: 화면 전체
     flex: 1,
-    backgroundColor: "skyblue",
+    backgroundColor: "#fff",
   },
 });
+//

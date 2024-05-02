@@ -6,10 +6,10 @@ import AuthStack from "./stacks/AuthStack";
 import MainStack from "./stacks/MainStack";
 import * as Firebase from "firebase/auth";
 import LoadingScreen from "./screens/loading-screen";
-import home from "./screens/home";
-import detail from "./screens/detail";
-import signin from "./screens/signin-screen";
-import signup from "./screens/signup-screen";
+// import home from "./screens/home";
+// import profile from "./screens/profile-screen";
+// import signin from "./screens/signin-screen";
+// import signup from "./screens/signup-screen";
 
 const Stack = createStackNavigator();
 
