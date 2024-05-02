@@ -126,7 +126,7 @@ export default () => {
   ) => {
     // 1. 'e'의 담겨있는 사용자의 입력 텍스트를 가져온다.
     const value = event.nativeEvent.text;
-    console.log(value);
+    // console.log(value);
 
     // 2. 입력 텍스트를 email, password state에 저장한다.
     switch (type) {
