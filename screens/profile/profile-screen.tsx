@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import styled from "styled-components";
 import ProfileInfo from "../../components/ProfileInfo";
+import { User } from "firebase/auth";
 
 const ScrollBox = styled(ScrollView)`
   flex: 1;
@@ -19,13 +20,52 @@ const Body = styled(View)`
   background-color: lightgray;
 `;
 
-export default () => {
+const SignoutButton = styled(TouchableOpacity)`
+  background-color: #e1e1e1;
+  border-radius: 4px;
+  padding: 5px 15px;
+`;
+
+const SignoutTtitle = styled(Text)`
+  color: #7c7c7c;
+  text-align: center;
+`;
+
+type Props = {
+  user: User | null;
+  // user2: string; ...;
+  onSignout: () => void;
+  onEditImage: () => void;
+};
+
+// function : function & arrow func
+export default ({ user, onSignout, onEditImage }: Props) => {
   return (
     <ScrollBox>
       <Header>
-        <ProfileInfo />
+        <ProfileInfo user={user} onEditImage={onEditImage} />
       </Header>
       <Body></Body>
+      <SignoutButton onPress={onSignout}>
+        <SignoutTtitle>로그아웃</SignoutTtitle>
+      </SignoutButton>
     </ScrollBox>
   );
 };
+// 함수 Call -> Container
+// Declare -> Screen
+
+// const props = {
+//   onPress:() => {},
+//   style:{},
+//   id: "1234",
+//   user: "aaa"
+// }
+
+// export default(props) =>{
+//   return null;
+// }
+
+// const Add = ({a, b}:{a:number, b:string) =>{
+//   return a + b;
+// }

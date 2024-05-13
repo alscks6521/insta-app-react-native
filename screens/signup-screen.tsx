@@ -13,7 +13,7 @@ import {
 } from "react-native";
 import styled from "styled-components";
 import { auth } from "../firebaseConfig";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { FirebaseError } from "firebase/app";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { AuthStackScreenList } from "../stacks/AuthStack";
@@ -122,6 +122,7 @@ export default () => {
   // moving screen to signin page.
   const goToSignIn = () => {
     navigation.navigate("SignIn");
+
     // navigation.goBack();
   };
 
@@ -163,7 +164,15 @@ export default () => {
       // error message reset
       setError("");
 
-      await createUserWithEmailAndPassword(auth, email, password);
+      // firebase auth create user
+      const credential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      // 업데이트 유저 프로필 이름
+      await updateProfile(credential.user, { displayName: name });
+
       Alert.alert("Account Created!", "", [
         {
           onPress: () => goToSignIn(),
