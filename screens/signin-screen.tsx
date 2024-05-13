@@ -15,7 +15,6 @@ import {
 import styled from "styled-components";
 import { auth } from "../firebaseConfig";
 import { FirebaseError } from "firebase/app";
-
 import { AuthStackScreenList } from "../stacks/AuthStack";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
