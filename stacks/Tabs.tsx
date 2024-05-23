@@ -39,7 +39,12 @@ export default () => {
         },
       })}
     >
-      <Tab.Screen name="Main" component={home} />
+      <Tab.Screen
+        name="Main"
+        component={home}
+        // appbar
+        options={{ headerShown: false }}
+      />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );

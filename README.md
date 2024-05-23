@@ -1,3 +1,25 @@
+# 11week
+
+1. 자신의 디바이스 가로,세로 길이 확인법 (create-post-screen)
+   1. const { width , height } = Dimensions.get("screen");
+   2. 별칭 칭하는 법: { width : WIDTH, height : HEIGHT }
+   3. 스크롤등
+2. Expo MediaLibrary (https://docs.expo.dev/versions/latest/sdk/media-library/)
+
+   1. npx expo install expo-media-library
+   2. 사이트 안:
+      [ "expo-media-library",
+      {
+      "photosPermission": "Allow $(PRODUCT_NAME) to access your photos.",
+      "savePhotosPermission": "Allow $(PRODUCT_NAME) to save photos.",
+      "isAccessMediaLocationEnabled": true
+      } ]를 복사
+   3. app.json으로 이동 후 plugins 배열안에 추가
+
+3. .
+
+---
+
 # 10week
 
 1. 9주차에는 권한설정하였고, 이미지 고르기 ImagePicker.launchImageLibraryAsync (profile-container.tsx)
