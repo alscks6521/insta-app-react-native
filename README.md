@@ -1,5 +1,3 @@
-**_readme_**
-
 # 10week
 
 1. 9주차에는 권한설정하였고, 이미지 고르기 ImagePicker.launchImageLibraryAsync (profile-container.tsx)
