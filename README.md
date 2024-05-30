@@ -1,3 +1,17 @@
+# 12week
+
+MediaLibrary (create-post 폴더)
+
+1. 권한설정
+2. 동작방식
+   1. app.tsx
+   2. MainStack.tsx
+   3. Home
+   4. index
+   5. CreatePostContainer
+      1. props{album, mainPhotos}
+   6. CreatePostScreen.tsx
+
 # 11week
 
 1. 자신의 디바이스 가로,세로 길이 확인법 (create-post-screen)

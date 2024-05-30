@@ -34,8 +34,8 @@
       [
         "expo-media-library",
         {
-          "photosPermission": "Allow $(PRODUCT_NAME) to access your photos.",
-          "savePhotosPermission": "Allow $(PRODUCT_NAME) to save photos.",
+          "photosPermission": "Allow $(PRODUCT_NAME)(이)가 앨범에 접근권한을 설정해주세요.",
+          "savePhotosPermission": "Allow $(PRODUCT_NAME)(이)가 사진을 가져오는 것을 설정해주세요.",
           "isAccessMediaLocationEnabled": true
         }
       ]
