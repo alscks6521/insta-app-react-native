@@ -3,6 +3,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import styled from "styled-components";
 import ProfileInfo from "../../components/ProfileInfo";
 import { User } from "firebase/auth";
+import { MyUser } from "./profile-container";
 
 const ScrollBox = styled(ScrollView)`
   flex: 1;
@@ -32,8 +33,7 @@ const SignoutTtitle = styled(Text)`
 `;
 
 type Props = {
-  user: User | null;
-  // user2: string; ...;
+  user: MyUser | undefined;
   onSignout: () => void;
   onEditImage: () => void;
 };
