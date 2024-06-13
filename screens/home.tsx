@@ -16,7 +16,7 @@ const SafeContainer = styled(SafeAreaView)``;
 
 //# A구역
 const Header = styled(View)`
-  background-color: burlywood;
+  background-color: transparent;
   padding: 10px;
   flex-direction: row;
   justify-content: space-between;

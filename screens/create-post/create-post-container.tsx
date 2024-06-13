@@ -9,10 +9,15 @@ export default () => {
   const [loading, setLoading] = useState(true);
 
   // 1. 불러온 사진 앨범 리스트
-  const [album, setAlbum] = useState<MediaLibrary.Asset[]>();
+  const [album, setAlbum] = useState<MediaLibrary.Asset[]>([]);
 
   // 2. 선택한 사진들 리스트
-  const [mainPhotos, setMainPhotos] = useState<MediaLibrary.Asset[]>();
+  const [mainPhotos, setMainPhotos] = useState<MediaLibrary.Asset[]>([]);
+
+  // 선택한 사진 리스트 갱신
+  const updateMainPhotos = (photos: MediaLibrary.Asset[]) => {
+    setMainPhotos(photos);
+  };
 
   const getAlbumPhotos = async () => {
     // - 사진 앨범 데이터들 가져오기.
@@ -49,6 +54,11 @@ export default () => {
     getAlbumPhotos();
   }, []);
   return (
-    <CreateScreen album={album} mainPhotos={mainPhotos} loading={loading} />
+    <CreateScreen
+      album={album}
+      mainPhotos={mainPhotos}
+      loading={loading}
+      updateMainPhotos={updateMainPhotos}
+    />
   );
 };
